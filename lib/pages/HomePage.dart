@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
@@ -15,6 +16,7 @@ class _HomeState extends State<HomePage>{
   String uri="http://c.m.163.com/nc/article/headline/T1348647853363/0-40.html";
   String uri2="http://c.m.163.com/nc/auto/list/5bmz6aG25bGx/0-20.html" ;
   var newList=new List<News>();
+  var _currentIndex=0;
   @override
   void initState()  {
     // TODO: implement initState
@@ -30,6 +32,7 @@ class _HomeState extends State<HomePage>{
       ),
       body: Column(
         children: <Widget>[
+          getTopWidget(),
           Expanded(
             child: ListView.separated(
                 itemBuilder: (context,index){
@@ -111,6 +114,30 @@ class _HomeState extends State<HomePage>{
 
      });
   }
+  PageController  _pageController =new PageController();
+  Widget getTopWidget(){
+    return Container(
+      height: 200,
+      child: PageView.builder(itemBuilder: ((context,index){
+        if(newList.length==0){
+          _initHttp();
+          return Text("正在加载");
+        }
+        _setTimer();
+        return  FadeInImage.assetNetwork(placeholder: "assets/timg.jpeg", image:newList[index].imgsrc,
+        );}
 
+      ),itemCount: 5,onPageChanged: (page){
+          _currentIndex=page;
+      },controller: _pageController,),
+    );
+  }
 
+  _setTimer() {
+    Timer.periodic(Duration(seconds: 4), (_) {
+      int index=(_currentIndex+1)%4;
+      _pageController.animateToPage(index,
+          duration: Duration(milliseconds: 400), curve: Curves.easeOut);
+    });
+  }
 }
