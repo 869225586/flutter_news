@@ -1,4 +1,5 @@
 # flutternews
+ ![目前的效果图](https://github.com/869225586/flutter_news/blob/master/example.jpg)
 
 A new Flutter application.
 
