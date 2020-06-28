@@ -29,11 +29,14 @@ class News{
 
 class Parent{
   final String city;
-  final List<dynamic> list;
+  final List<News> list;
 
   Parent(this.city, this.list);
-  Parent.fromJson(Map<String,dynamic> json):
-        city=json['city'],
-        list=json['list'];
+  factory Parent.fromJson(Map<String,dynamic> json){
 
+      List<dynamic> list=json['list'];
+      List<News> newList=list.map((value)=>News.fromJson(value)).toList();
+       return Parent(json['title'],newList);
+  }
 }
+

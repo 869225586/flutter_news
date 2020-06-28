@@ -107,9 +107,10 @@ class _HomeState extends State<HomePage>{
     String responseBody = await response.transform(utf8.decoder).join();
     Map map= json.decode(responseBody);
     var news=new Parent.fromJson(map);
-     news.list.forEach((map){
-           newList.add(News.fromJson(map));
-     });
+//     news.list.forEach((map){
+//           newList.add(News.fromJson(map));
+//     });
+     newList=news.list;
      setState(() {
 
      });
@@ -128,6 +129,7 @@ class _HomeState extends State<HomePage>{
         );}
 
       ),itemCount: 5,onPageChanged: (page){
+
           _currentIndex=page;
       },controller: _pageController,),
     );
@@ -135,7 +137,8 @@ class _HomeState extends State<HomePage>{
 
   _setTimer() {
     Timer.periodic(Duration(seconds: 4), (_) {
-      int index=(_currentIndex+1)%4;
+      int index=(_currentIndex+1)%5;
+      print(index);
       _pageController.animateToPage(index,
           duration: Duration(milliseconds: 400), curve: Curves.easeOut);
     });
