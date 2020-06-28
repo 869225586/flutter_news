@@ -22,6 +22,7 @@ class _HomeState extends State<HomePage>{
     // TODO: implement initState
     super.initState();
      _initHttp();
+    _setTimer();
   }
   @override
   Widget build(BuildContext context) {
@@ -124,21 +125,25 @@ class _HomeState extends State<HomePage>{
           _initHttp();
           return Text("正在加载");
         }
-        _setTimer();
         return  FadeInImage.assetNetwork(placeholder: "assets/timg.jpeg", image:newList[index].imgsrc,
         );}
 
       ),itemCount: 5,onPageChanged: (page){
-
+          print(page);
           _currentIndex=page;
       },controller: _pageController,),
     );
   }
 
   _setTimer() {
+
     Timer.periodic(Duration(seconds: 4), (_) {
+      if(newList.length<0){
+        //没有数据不进行轮播
+        return;
+      }
       int index=(_currentIndex+1)%5;
-      print(index);
+      print("当前计算${index}");
       _pageController.animateToPage(index,
           duration: Duration(milliseconds: 400), curve: Curves.easeOut);
     });
