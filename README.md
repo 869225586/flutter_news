@@ -1,5 +1,5 @@
 # flutternews
-
+<img src="https://github.com/869225586/flutter_news/blob/master/example.jpg" width = "200" height = "400" alt="" align=center />
 A new Flutter application.
 
 ## Getting Started
