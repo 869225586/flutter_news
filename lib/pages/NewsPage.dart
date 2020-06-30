@@ -22,7 +22,7 @@ class _NewsState<NewsPage> extends State{
   String uri2="http://c.m.163.com/nc/auto/list/5bmz6aG25bGx/0-20.html" ;
   var newList=new List<News>();
   var _currentIndex=0;
-
+  var _timer;
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -46,7 +46,7 @@ class _NewsState<NewsPage> extends State{
     _initHttp();
     _setTimer();
   }
-
+  
   Widget getListItem(int index){
     News news=newList[index];
     return  ConstrainedBox(
@@ -69,7 +69,7 @@ class _NewsState<NewsPage> extends State{
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       Align(
-                        child: Text(news.title),
+                        child: Text(news.title,style:TextStyle(fontWeight: FontWeight.bold) ,),
                         alignment: Alignment.centerLeft,
                       ),
                       Padding(
@@ -109,7 +109,7 @@ class _NewsState<NewsPage> extends State{
     HttpClientResponse response = await request.close();
     String responseBody = await response.transform(utf8.decoder).join();
     Map map= json.decode(responseBody);
-    var news=new Parent.fromJson(map);
+    var news=Parent.fromJson(map);
 //     news.list.forEach((map){
 //           newList.add(News.fromJson(map));
 //     });
@@ -118,7 +118,7 @@ class _NewsState<NewsPage> extends State{
 
     });
   }
-  PageController  _pageController =new PageController();
+  PageController  _pageController = new PageController();
   Widget getTopWidget(){
     return Container(
       height: 200,
@@ -139,7 +139,8 @@ class _NewsState<NewsPage> extends State{
 
   _setTimer() {
 
-    Timer.periodic(Duration(seconds: 4), (_) {
+    Timer.periodic(Duration(seconds: 4), (timer) {
+      _timer=timer;
       if(newList.length<0){
         //没有数据不进行轮播
         return;
@@ -149,5 +150,12 @@ class _NewsState<NewsPage> extends State{
       _pageController.animateToPage(index,
           duration: Duration(milliseconds: 400), curve: Curves.easeOut);
     });
+  }
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+
+    _timer.cancel();
   }
 }
