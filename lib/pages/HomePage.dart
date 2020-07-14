@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutternews/pages/DrawPage.dart';
 import 'package:flutternews/pages/NewsPage.dart';
 import 'package:flutternews/pages/PersonPage.dart';
 
@@ -39,6 +40,9 @@ class _HomeState extends State<HomePage>{
         currentIndex: _currentIndex,
         selectedItemColor: Colors.blue,
         unselectedItemColor: Colors.grey,
+      ),
+      drawer: new Drawer(
+        child: DrawPage.getDraw(),
       ),
     );
   }

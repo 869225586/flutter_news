@@ -15,6 +15,8 @@ class News{
       digest=json['digest'],
       imgsrc=json['imgsrc'],
       url=json['url'];
+
+
   List<News> newList;
   Map<String,dynamic> map;
   List<News> from(List<dynamic> jsonList ){
