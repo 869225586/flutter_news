@@ -6,13 +6,12 @@ class DrawPage {
     return new ListView(
       children: <Widget>[
         _drawerHeader(),
-        new ClipRect(
-          child: new ListTile(
+         new ListTile(
             leading: new CircleAvatar(child: new Text("A")),
             title: new Text('Drawer item A'),
             onTap: () => {},
           ),
-        ),
+
         new ClipRect(
           child: new ListTile(
             leading: new CircleAvatar(child: new Text("A")),

@@ -24,7 +24,6 @@ class _HomeState extends State<HomePage>{
     // TODO: implement build
     return Scaffold(
       appBar: AppBar(title: (Text("新闻客户端")),
-
       ),
       body:_getCurrentBody(),
       bottomNavigationBar: BottomNavigationBar(
