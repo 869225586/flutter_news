@@ -7,7 +7,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutternews/model/news.dart';
 
-import 'package:flutternews/pages/NewsDetail.dart';
+import 'package:flutternews/route/RouteUtils.dart';
 
 
 
@@ -94,9 +94,10 @@ class _NewsState<NewsPage> extends State{
             ],
           ),
           onTap: (){
-            Navigator.push(context, MaterialPageRoute(builder:(context){
+            Navigator.pushNamed(context, newDetailPath,arguments:{newList[index].url});
+            /*Navigator.push(context, MaterialPageRoute(builder:(context){
               return NewsDetail(url: newList[index].url);
-            }));
+            }));*/
           },
         )
     );

@@ -47,7 +47,7 @@ class _HomeState extends State<HomePage>{
   }
 
   Widget  _getCurrentBody() {
-    return widgetList[_currentIndex];
+    return  widgetList[_currentIndex];
   }
 
 }
