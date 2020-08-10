@@ -16,7 +16,7 @@ final newPath="/newHome";
 final Map<String,Function> routes={
 '/':(content,{arguments})=>SplashPage(),
   newPath:(content,{arguments})=>NewsPage(),
-  newDetailPath:(content,{arguments})=>NewsDetail(url:arguments),
+  newDetailPath:(content,{arguments})=>NewsDetail(arguments:arguments),
   homePath:(content,{arguments})=>HomePage()
 };
 

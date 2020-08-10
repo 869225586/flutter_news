@@ -94,7 +94,7 @@ class _NewsState<NewsPage> extends State{
             ],
           ),
           onTap: (){
-            Navigator.pushNamed(context, newDetailPath,arguments:{newList[index].url});
+            Navigator.pushNamed(context, newDetailPath,arguments:{"url":newList[index].url});
             /*Navigator.push(context, MaterialPageRoute(builder:(context){
               return NewsDetail(url: newList[index].url);
             }));*/
