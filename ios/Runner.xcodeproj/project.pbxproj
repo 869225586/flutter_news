@@ -430,8 +430,8 @@
 				FLUTTER_BUILD_DIR = build;
 				FLUTTER_BUILD_NAME = 1.0.0;
 				FLUTTER_BUILD_NUMBER = 1;
-				FLUTTER_FRAMEWORK_DIR = /Users/edz/Downloads/flutter/bin/cache/artifacts/engine/ios;
-				FLUTTER_ROOT = /Users/edz/Downloads/flutter;
+				FLUTTER_FRAMEWORK_DIR = "/Users/edz/Downloads/flutter-2/bin/cache/artifacts/engine/ios";
+				FLUTTER_ROOT = "/Users/edz/Downloads/flutter-2";
 				FLUTTER_TARGET = lib/main.dart;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;

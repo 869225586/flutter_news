@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutternews/widght/personitem.dart';
 
 class PersonPage extends StatefulWidget {
   @override
@@ -7,17 +8,25 @@ class PersonPage extends StatefulWidget {
 }
 
 class _PersonState<PersonPage> extends State {
+  var personItem = new personitem();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
     return Column(
       children: <Widget>[
         Center(
-          child: Image.network(
-              "https://avatars2.githubusercontent.com/u/20411648?s=460&v=4",
-              width: 64.0,
-              height: 64.0),
-        ),
+            child: new ClipOval(
+                child: Image.network(
+                    "https://avatars2.githubusercontent.com/u/20411648?s=460&v=4",
+                    width: 64.0,
+                    height: 64.0))),
         Flexible(
             child: ListView.builder(
                 itemCount: 3,
@@ -25,31 +34,15 @@ class _PersonState<PersonPage> extends State {
                 itemBuilder: (BuildContext context, int index) {
                   switch (index) {
                     case 0:
-                      return Padding(
-                          padding: EdgeInsets.only(left: 20),
-                          child: Text(
-                            "姓名：茨木童子",
-                            style: TextStyle(color: Colors.orange),
-                            textAlign: TextAlign.left,
-                          ));
+                      return personItem.getPersonItem("姓名：茨木童子");
                       break;
                     case 1:
-                      return Padding(
-                          padding: EdgeInsets.only(left: 20),
-                          child: Text(
-                            "技能：一拳超人 地狱右手",
-                            style: TextStyle(color: Colors.orange),
-                            textAlign: TextAlign.left,
-                          ));
+                      return personItem.getPersonItem(
+                        "技能：一拳超人 地狱右手",
+                      );
                       break;
                     case 2:
-                      return Padding(
-                          padding: EdgeInsets.only(left: 20),
-                          child: Text(
-                            "好基友：鬼吞童子",
-                            style: TextStyle(color: Colors.orange),
-                            textAlign: TextAlign.left,
-                          ));
+                      return personItem.getPersonItem("好基友：鬼吞童子");
                       break;
                   }
                 }))
