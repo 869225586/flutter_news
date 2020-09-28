@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
+import 'package:flutternews/route/EventBus.dart';
 class DrawPage {
   static Widget getDraw() {
     return new ListView(
@@ -8,8 +8,10 @@ class DrawPage {
         _drawerHeader(),
          new ListTile(
             leading: new CircleAvatar(child: new Text("A")),
-            title: new Text('Drawer item A'),
-            onTap: () => {},
+            title: new Text('发送事件通知'),
+            onTap: () => {
+            bus.emit("event","我是事件通知")
+            },
           ),
 
         new ClipRect(

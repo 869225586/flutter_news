@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutternews/widght/personitem.dart';
-
+import 'package:flutternews/route/EventBus.dart';
 class PersonPage extends StatefulWidget {
   @override
   _PersonState createState() => _PersonState();
@@ -9,10 +9,15 @@ class PersonPage extends StatefulWidget {
 
 class _PersonState<PersonPage> extends State {
   var personItem = new personitem();
-
+  var text = "姓名: 茨木童子";
   @override
   void initState() {
     // TODO: implement initState
+    bus.on("event", (arg) {
+      setState(() {
+        text=arg;
+      });
+    });
     super.initState();
   }
 
@@ -34,7 +39,7 @@ class _PersonState<PersonPage> extends State {
                 itemBuilder: (BuildContext context, int index) {
                   switch (index) {
                     case 0:
-                      return personItem.getPersonItem("姓名：茨木童子");
+                      return personItem.getPersonItem(text);
                       break;
                     case 1:
                       return personItem.getPersonItem(
