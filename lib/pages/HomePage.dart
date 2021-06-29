@@ -32,11 +32,12 @@ class _HomeState extends State<HomePage>{
           BottomNavigationBarItem(icon:Icon(Icons.person),title:Text("个人中心")),
         ],
         onTap: (index){
+          //onTap 底部导航的点击事件回调
            setState(() {
              _currentIndex=index;
            });
         },
-        currentIndex: _currentIndex,
+        currentIndex: _currentIndex, //当前选中的索引
         selectedItemColor: Colors.blue,
         unselectedItemColor: Colors.grey,
       ),
@@ -47,7 +48,7 @@ class _HomeState extends State<HomePage>{
   }
 
   Widget  _getCurrentBody() {
-    return  widgetList[_currentIndex];
+    return  widgetList[_currentIndex]; //获取当前索引对应的page
   }
 
 }

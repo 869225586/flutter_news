@@ -12,9 +12,10 @@ import '../pages/splash.dart';
 final homePath="/homePage";
 final newDetailPath="/newDetail";
 final newPath="/newHome";
+final splashPath= "/";
 /** 创建一个路由集合  arguments 千万不能写错否则会报错 **/
 final Map<String,Function> routes={
-'/':(content,{arguments})=>SplashPage(),
+  splashPath:(content,{arguments})=>SplashPage(),
   newPath:(content,{arguments})=>NewsPage(),
   newDetailPath:(content,{arguments})=>NewsDetail(arguments:arguments),
   homePath:(content,{arguments})=>HomePage()

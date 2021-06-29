@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutternews/route/EventBus.dart';
 class DrawPage {
+  //静态方法返回一个 widget
   static Widget getDraw() {
     return new ListView(
       children: <Widget>[
